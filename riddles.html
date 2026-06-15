@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Riddle Vault - The Midnight Archive</title>
+
+    <style>
+        body {
+            background-color: #111111;
+            color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .box {
+            margin: 30px auto;
+            max-width: 800px;
+            background: #1c1c1c;
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #c79b2c;
+        }
+
+        h1 {
+            color: #c79b2c;
+            font-size: 40px;
+        }
+
+        h2 {
+            color: #c79b2c;
+        }
+
+        .riddle {
+            background: #222;
+            border: 1px solid #444;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        button {
+            background: #6b0000;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            margin-top: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        a {
+            color: #c79b2c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+      #random-riddle {
+    border: 2px dashed #c79b2c;
+      }
+      nav {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+nav a {
+    color: #c79b2c;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+          }
+      footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    color: #999;
+    font-size: 14px;
+    text-align: center;
+}
+
+footer p {
+    margin: 8px 0;
+}
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="library.html">Library</a>
+    <a href="riddles.html">Riddle Vault</a>
+    <a href="debates.html">Debates</a>
+    <a href="about.html">About</a>
+  </nav>
+    <h1>🧩 The Riddle Vault 🧩</h1>
+<div id="random-riddle" class="riddle">
+    <h2>🎲 Random Riddle</h2>
+
+    <p id="riddle-text">
+        Press the button below to receive a mystery from the vault...
+    </p>
+
+    <button onclick="newRiddle()">Reveal a Random Riddle</button>
+</div>
+    <p>
+        Welcome, Seeker. Here lie the puzzles, mysteries,
+        and forgotten questions hidden within the Midnight Archive.
+    </p>
+
+    <p><a href="index.html">⬅ Return to the Main Archive</a></p>
+
+    <div class="riddle">
+        <h2>Riddle One</h2>
+        <p>
+            I speak without a mouth and hear without ears.<br>
+            I have no body, but I come alive with the wind.<br>
+            What am I?
+        </p>
+
+        <button onclick="showAnswer1()">Reveal Answer</button>
+
+        <p id="answer1" style="display:none;">
+            ✨ An Echo.
+        </p>
+    </div>
+
+    <div class="riddle">
+        <h2>Riddle Two</h2>
+        <p>
+            The more you take from me, the bigger I become.<br>
+            What am I?
+        </p>
+
+        <button onclick="showAnswer2()">Reveal Answer</button>
+
+        <p id="answer2" style="display:none;">
+            ✨ A Hole.
+        </p>
+    </div>
+<footer>
+    <p>🦇 The Midnight Archive 🦇</p>
+    <p><em>"Where shadows tell stories and every riddle hides a secret."</em></p>
+    <p>© 2026 • Built in the shadows.</p>
+</footer>
+</div>
+
+<script>
+function showAnswer1() {
+    document.getElementById("answer1").style.display = "block";
+}
+
+function showAnswer2() {
+    document.getElementById("answer2").style.display = "block";
+}
+  const riddles = [
+    "I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?",
+    "The more you take from me, the bigger I become. What am I?",
+    "What has many keys but can't open a single lock?",
+    "What can travel around the world while staying in the same corner?",
+    "I am not alive, but I grow. I don't have lungs, but I need air. What am I?"
+];
+
+function newRiddle() {
+    const randomIndex = Math.floor(Math.random() * riddles.length);
+    document.getElementById("riddle-text").innerHTML =
+        riddles[randomIndex];
+}
+</script>
+
+</body>
+</html>

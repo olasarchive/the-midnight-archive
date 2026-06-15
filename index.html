@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Midnight Archive</title>
+
+    <style> 
+      .cards {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background: #222;
+    border: 1px solid #c79b2c;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.card h3 {
+    color: #c79b2c;
+    margin-bottom: 10px;
+}
+        body {
+            background-color: #111111;
+            color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #c79b2c;
+            font-size: 32px;
+        }
+
+        p {
+            font-size: 22px;
+            color: #cccccc;
+        }
+
+        .box {
+            margin: 50px auto;
+            max-width: 700px;
+            background: #1c1c1c;
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #c79b2c;
+        }
+
+        button {
+            background: #6b0000;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            margin-top: 20px;
+            border-radius: 8px;
+            font-size: 18px;
+        } 
+      nav {
+    margin-bottom: 30px;
+}
+
+nav a {
+    color: #c79b2c;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+      .quote-box {
+    margin-top: 30px;
+    background: #181818;
+    border-left: 4px solid #c79b2c;
+    padding: 20px;
+    border-radius: 10px;
+    font-style: italic;
+}
+
+.quote-author {
+    margin-top: 10px;
+    color: #c79b2c;
+    font-weight: bold;
+      }
+      footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    color: #999;
+    font-size: 14px;
+}
+
+footer p {
+    margin: 8px 0;
+  }
+      .banner {
+    margin-bottom: 30px;
+    padding: 25px;
+    border: 2px solid #c79b2c;
+    border-radius: 15px;
+    background: linear-gradient(to bottom, #1a1a1a, #111111);
+}
+
+.banner h1 {
+    margin: 0;
+    font-size: 48px;
+}
+
+.banner p {
+    color: #cccccc;
+    font-style: italic;
+    margin-top: 10px;
+}
+      .logo {
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto 20px auto;
+      }
+      nav {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+nav a {
+    color: #c79b2c;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+      <nav>
+    <a href="index.html">Home</a>
+    <a href="library.html">Library</a>
+    <a href="riddles.html">Riddle Vault</a>
+    <a href="debates.html">Debates</a>
+    <a href="about.html">About</a>
+      </nav>
+        <div class="banner">
+
+    <img src="logo.png" alt="The Midnight Archive Logo" class="logo">
+
+    <p>Where shadows tell stories and every riddle hides a secret.</p>
+
+    <p>
+        📜 An ever-growing collection of legends, riddles,
+        and forgotten lore.
+    </p>
+
+        </div>
+
+        <hr>
+
+        <h2>🌙 Riddle of the Day</h2>
+
+        <p>
+            I speak without a mouth and hear without ears.<br>
+            I have no body, but I come alive with the wind.<br>
+            What am I?
+        </p>
+
+        <button onclick="showAnswer()">Reveal Answer</button>
+
+<p id="answer" style="display:none; margin-top:20px;">
+    ✨ The answer is: <strong>An Echo.</strong>
+</p>
+<a href="library.html" style="text-decoration: none; color: inherit;">
+    <div class="card">
+        <h3>🦇 Dark Fantasy Library</h3>
+        <p>
+            Explore vampire legends, supernatural creatures,
+            forgotten myths, and dark fantasy worlds.
+        </p>
+    </div>
+</a>
+
+    <a href="riddles.html" style="text-decoration:none; color:inherit;">
+    <div class="card">
+        <h3>🧩 The Riddle Vault</h3>
+        <p>
+            Challenge yourself with mysterious riddles,
+            logic puzzles, and secrets hidden in the shadows.
+        </p>
+    </div> <div class="card" style="margin-top: 30px;">
+    <h3>📜 Featured Lore</h3>
+
+    <p>
+        <strong>The First Vampire</strong>
+    </p>
+
+    <p>
+        Legends tell of an immortal wanderer who traded sunlight for
+        eternity. Some say he was cursed, others believe he made the
+        choice willingly. Every culture has its own version of the tale,
+        but one question remains...
+    </p>
+
+    <p style="font-style: italic; color: #c79b2c;">
+        "Would immortality be a blessing, or the oldest curse?"
+    </p>
+    </div>
+    </a>
+
+
+      <a href="debates.html" style="text-decoration: none; color: inherit;">
+    <div class="card">
+        <h3>⚔️ The Hall of Debates</h3>
+        <p>
+            Explore timeless questions, legendary rivalries,
+            and the moral dilemmas hidden within the darkness.
+        </p>
+    </div>
+      </a>
+<div class="quote-box">
+    <h3>🌙 Quote from the Shadows</h3>
+
+    <p id="shadow-quote">
+        Press the button below to uncover a forgotten truth...
+    </p>
+
+    <button onclick="newQuote()">
+        Reveal Another Quote
+    </button>
+</div>
+<footer>
+    <p>🦇 The Midnight Archive 🦇</p>
+    <p><em>"Where shadows tell stories and every riddle hides a secret."</em></p>
+    <p>© 2026 • Built in the shadows.</p>
+</footer></>
+</>
+<script>
+function showAnswer() {
+    document.getElementById("answer").style.display = "block";
+}
+  const quotes = [
+    "Monsters are not always the creatures hiding in the dark. Sometimes they are the ones who fear the light.",
+    "Immortality is not the absence of death, but the burden of endless memory.",
+    "Every ancient ruin was once someone's home.",
+    "The oldest stories survive because they contain the oldest fears.",
+    "Beware the monster that learns to wear a human smile."
+];
+window.onload = newQuote;
+function newQuote() {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    document.getElementById("shadow-quote").innerHTML =
+        "“" + quotes[randomIndex] + "”";
+}
+</script>
+
+</body>
+</html>
+    </div>
+
+</body>
+</html>

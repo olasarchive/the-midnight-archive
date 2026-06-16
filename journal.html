@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Midnight Archive - Archive Keeper's Journal</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <style>
+      .entry {
+    background: rgba(26, 26, 26, 0.9);
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 25px 0;
+    backdrop-filter: blur(3px);
+}
+
+.entry h2 {
+    color: #c79b2c;
+}
+
+.date {
+    color: #999;
+    font-size: 0.9em;
+    font-style: italic;
+}
+        body {
+            background-color: #111;
+            color: #eee;
+            font-family: Georgia, serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1, h2 {
+            color: #c79b2c;
+        }
+
+        nav {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #c79b2c;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .entry {
+            background: #1a1a1a;
+            border: 1px solid #444;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+
+        .entry:hover {
+            border-color: #c79b2c;
+            transition: 0.3s;
+        }
+
+        .date {
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #999;
+            text-align: center;
+        }
+      .stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+        radial-gradient(2px 2px at 120px 80px, #ddd, transparent),
+        radial-gradient(1.5px 1.5px at 220px 150px, #fff, transparent),
+        radial-gradient(2px 2px at 320px 50px, #ccc, transparent),
+        radial-gradient(1.5px 1.5px at 420px 180px, #fff, transparent);
+    background-repeat: repeat;
+    background-size: 500px 250px;
+    animation: twinkle 8s infinite linear;
+    opacity: 0.35;
+    z-index: -1;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.25; }
+    50% { opacity: 0.4; }
+    100% { opacity: 0.25; }
+}
+      .mist {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255,255,255,0.04) 40%,
+        rgba(255,255,255,0.06) 50%,
+        rgba(255,255,255,0.04) 60%,
+        transparent 100%
+    );
+
+    animation: mistMove 18s linear infinite;
+    opacity: 0.6;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes mistMove {
+    0% {
+        transform: translateX(-30%);
+    }
+    100% {
+        transform: translateX(30%);
+    }
+}
+      .card, .character, .battle, .entry, .map-card, .favorite {
+    transition: all 0.3s ease;
+      }
+      .card:hover,
+.character:hover,
+.battle:hover,
+.entry:hover,
+.map-card:hover,
+.favorite:hover {
+    transform: translateY(-6px);
+    border-color: #c79b2c;
+    box-shadow: 0 10px 25px rgba(199, 155, 44, 0.25);
+}
+      .card:hover h2,
+.character:hover h2,
+.battle:hover h2,
+.map-card:hover h2 {
+    text-shadow: 0 0 10px rgba(199, 155, 44, 0.4);
+}
+    </style>
+</head>
+
+<body>
+<div class="stars"></div>
+<div class="mist"></div>
+<div class="container">
+
+<nav>
+    <a href="index.html">|Home|</a>
+    <a href="library.html">|Library|</a>
+    <a href="characters.html">|Characters|</a>
+    <a href="battle-arena.html">|Battle Arena|</a>
+    <a href="journal.html">|Journal|</a>
+    <a href="riddles.html">|Riddle Vault|</a>
+    <a href="debates.html">|Debates|</a>
+    <a href="about.html">|About|</a>
+    <a href="archive-map.html">|Archive Map|</a>
+    <a href="guestbook.html">|Guestbook|</a>
+</nav>
+
+<h1>📜 The Archive Keeper's Journal</h1>
+
+<p>
+Hidden among the shelves of the Midnight Archive are the personal notes
+of its keeper—observations on myths, immortality, forgotten stories,
+and the questions that refuse to die.
+</p>
+
+<div class="entry">
+    <h2>🦇 Entry I — Why Do Vampires Endure?</h2>
+    <p class="date">Recorded: Under a moonless sky.</p>
+
+    <p>
+        Every generation seems to reinvent the vampire.
+        Sometimes a monster, sometimes a tragedy, sometimes a mirror
+        of human fear. But the truth is deeper: vampires endure
+        because we never stop asking what immortality would cost.
+    </p>
+</div>
+
+<div class="entry">
+    <h2>🌙 Entry II — The Sound of Empty Castles</h2>
+    <p class="date">Recorded: During a silent night in the Archive.</p>
+
+    <p>
+        There is a sound that old castles are said to make when no one is
+        watching them. Not wind. Not wood. Something slower… like memory
+        stretching through stone.
+    </p>
+</div>
+
+<div class="entry">
+    <h2>🧩 Entry III — Riddles Are Not Games</h2>
+    <p class="date">Recorded: After solving an unsolved question.</p>
+
+    <p>
+        A riddle is not meant to confuse—it is meant to reveal how you
+        think. Every answer says more about the solver than the question.
+    </p>
+</div>
+  <!-- TEMPLATE FOR FUTURE ENTRIES
+<div class="entry">
+    <h2>🦇 Entry IV — TITLE HERE</h2>
+    <p class="date">Recorded: TIME OR MOOD</p>
+    <p>WRITE ENTRY HERE</p>
+</div>
+-->
+<footer>
+    <p>🦇 The Midnight Archive 🦇</p>
+    <p><em>"Every legend begins as someone's impossible story."</em></p>
+    <p>© 2026 • Built in the shadows.</p>
+</footer>
+
+</div>
+
+</body>
+</html>

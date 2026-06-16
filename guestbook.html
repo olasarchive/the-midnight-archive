@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Midnight Archive - Book of Visitors</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <style>
+        body {
+            background: #111;
+            color: #eee;
+            font-family: Georgia, serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1 {
+            color: #c79b2c;
+            text-align: center;
+        }
+
+        nav {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        nav a {
+            color: #c79b2c;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .card {
+            background: #1a1a1a;
+            border: 1px solid #444;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            background: #222;
+            color: #eee;
+            border: 1px solid #c79b2c;
+            border-radius: 8px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 12px;
+            background: #1a1a1a;
+            color: #c79b2c;
+            border: 1px solid #c79b2c;
+            padding: 10px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #messages {
+            margin-top: 20px;
+        }
+
+        .message {
+            border-left: 3px solid #c79b2c;
+            padding-left: 12px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #999;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+        }
+      .stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+        radial-gradient(2px 2px at 120px 80px, #ddd, transparent),
+        radial-gradient(1.5px 1.5px at 220px 150px, #fff, transparent),
+        radial-gradient(2px 2px at 320px 50px, #ccc, transparent),
+        radial-gradient(1.5px 1.5px at 420px 180px, #fff, transparent);
+    background-repeat: repeat;
+    background-size: 500px 250px;
+    animation: twinkle 8s infinite linear;
+    opacity: 0.35;
+    z-index: -1;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.25; }
+    50% { opacity: 0.4; }
+    100% { opacity: 0.25; }
+}
+      .mist {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255,255,255,0.04) 40%,
+        rgba(255,255,255,0.06) 50%,
+        rgba(255,255,255,0.04) 60%,
+        transparent 100%
+    );
+
+    animation: mistMove 18s linear infinite;
+    opacity: 0.6;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes mistMove {
+    0% {
+        transform: translateX(-30%);
+    }
+    100% {
+        transform: translateX(30%);
+    }
+}
+      .card, .character, .battle, .entry, .map-card, .favorite {
+    transition: all 0.3s ease;
+      }
+      .card:hover,
+.character:hover,
+.battle:hover,
+.entry:hover,
+.map-card:hover,
+.favorite:hover {
+    transform: translateY(-6px);
+    border-color: #c79b2c;
+    box-shadow: 0 10px 25px rgba(199, 155, 44, 0.25);
+}
+      .card:hover h2,
+.character:hover h2,
+.battle:hover h2,
+.map-card:hover h2 {
+    text-shadow: 0 0 10px rgba(199, 155, 44, 0.4);
+}
+    </style>
+</head>
+
+<body>
+<div class="stars"></div>
+<div class="mist"></div>
+<div class="container">
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="archive-map.html">Archive Map</a>
+    <a href="library.html">Library</a>
+    <a href="characters.html">Characters</a>
+    <a href="battle-arena.html">Battle Arena</a>
+    <a href="journal.html">Journal</a>
+    <a href="guestbook.html">Guestbook</a>
+    <a href="riddles.html">Riddle Vault</a>
+    <a href="debates.html">Debates</a>
+    <a href="about.html">About</a>
+</nav>
+
+<h1>📖 The Book of Visitors</h1>
+
+<div class="card">
+    <p>
+        Travelers who pass through the Midnight Archive often leave behind
+        a thought, a warning, or a fragment of wisdom.
+    </p>
+
+    <textarea id="visitorMessage"
+        placeholder="Leave your message in the Book of Visitors..."></textarea>
+
+    <button onclick="saveMessage()">
+        🦇 Leave Your Mark
+    </button>
+</div>
+
+<div class="card">
+    <h2>🌙 Messages Left in the Shadows</h2>
+    <div id="messages"></div>
+</div>
+
+<footer>
+    <p>🦇 The Midnight Archive 🦇</p>
+    <p><em>"Every visitor leaves a story behind."</em></p>
+</footer>
+
+</div>
+
+<script>
+function loadMessages() {
+    let saved =
+        JSON.parse(localStorage.getItem("midnightGuestbook")) || [];
+
+    let output = "";
+
+    for (let i = saved.length - 1; i >= 0; i--) {
+        output += "<div class='message'>🕯️ " +
+            saved[i] +
+            "</div>";
+    }
+
+    document.getElementById("messages").innerHTML = output;
+}
+
+function saveMessage() {
+    let text =
+        document.getElementById("visitorMessage").value.trim();
+
+    if (text === "") {
+        alert("The Book of Visitors cannot accept a blank page.");
+        return;
+    }
+
+    let saved =
+        JSON.parse(localStorage.getItem("midnightGuestbook")) || [];
+
+    saved.push(text);
+
+    localStorage.setItem(
+        "midnightGuestbook",
+        JSON.stringify(saved)
+    );
+
+    document.getElementById("visitorMessage").value = "";
+    loadMessages();
+}
+
+loadMessages();
+</script>
+
+</body>
+</html>

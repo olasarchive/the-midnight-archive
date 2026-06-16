@@ -1,85 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>About The Midnight Archive</title>
-    <link rel="icon" type="image/png" href="favicon.png">
+    <title>The Midnight Archive - Battle Arena</title>
+  <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
         body {
-            background-color: #111111;
-            color: #f0f0f0;
-            font-family: Arial, sans-serif;
-            padding: 40px;
+            background-color: #111;
+            color: #eee;
+            font-family: Georgia, serif;
+            margin: 0;
+            padding: 20px;
         }
 
-        .container {
+        .box {
             max-width: 900px;
             margin: auto;
-            background: #1c1c1c;
-            padding: 30px;
-            border-radius: 15px;
-            border: 2px solid #c79b2c;
         }
 
-        h1 {
+        h1, h2 {
             color: #c79b2c;
+        }
+
+        .battle {
+            background: #1a1a1a;
+            border: 1px solid #444;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .battle:hover {
+            border-color: #c79b2c;
+            transform: scale(1.02);
+            transition: 0.3s;
+        }
+
+        nav {
+            margin-bottom: 30px;
             text-align: center;
         }
 
-        h2 {
-            color: #c79b2c;
-        }
-
-        p {
-            line-height: 1.8;
-            margin-bottom: 18px;
-        }
-
-        .note {
-            margin-top: 30px;
-            padding: 20px;
-            background: #222;
-            border-left: 4px solid #c79b2c;
-            font-style: italic;
-        }
-
-        a {
+        nav a {
             color: #c79b2c;
             text-decoration: none;
+            margin: 0 15px;
             font-weight: bold;
         }
 
-        a:hover {
+        nav a:hover {
             text-decoration: underline;
         }
-      nav {
-    margin-bottom: 30px;
-    text-align: center;
-}
 
-nav a {
-    color: #c79b2c;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-      footer {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #444;
-    color: #999;
-    font-size: 14px;
-    text-align: center;
-}
-
-footer p {
-    margin: 8px 0;
-}
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #999;
+            text-align: center;
+        }
       .stars {
     position: fixed;
     top: 0;
@@ -103,7 +82,7 @@ footer p {
     0% { opacity: 0.25; }
     50% { opacity: 0.4; }
     100% { opacity: 0.25; }
-}
+      }
       .mist {
     position: fixed;
     top: 0;
@@ -132,7 +111,7 @@ footer p {
     100% {
         transform: translateX(30%);
     }
-}
+        }
       .card, .character, .battle, .entry, .map-card, .favorite {
     transition: all 0.3s ease;
       }
@@ -158,8 +137,9 @@ footer p {
 <body>
 <div class="stars"></div>
 <div class="mist"></div>
-<div class="container">
-   <nav>
+<div class="box">
+
+<nav>
     <a href="index.html">|Home|</a>
     <a href="library.html">|Library|</a>
     <a href="characters.html">|Characters|</a>
@@ -170,39 +150,33 @@ footer p {
     <a href="journal.html">|Journal|</a>
     <a href="archive-map.html">|Archive Map|</a>
     <a href="guestbook.html">|Guestbook|</a>
-   </nav>
-    <p><a href="index.html">⬅ Return to the Main Archive</a></p>
+</nav>
 
-    <h1>🦇 About The Midnight Archive 🦇</h1>
+<h1>⚔️ The Battle Arena ⚔️</h1>
 
-    <p>
-        The Midnight Archive is a digital sanctuary for lovers of dark fantasy,
-        ancient myths, forgotten legends, and impossible questions.
-        It is a place where riddles are preserved, old stories are remembered,
-        and debates about immortality, monsters, and mystery never truly end.
-    </p>
+<p>
+Where legends collide and only one leaves the shadows victorious.
+These are friendly debates for fans of dark fantasy and gothic fiction.
+</p>
 
-    <h2>📚 What You'll Find Here</h2>
+<div class="battle">
+    <h2>🩸 Klaus Mikaelson vs Lestat de Lioncourt</h2>
 
     <p>
-        Within these halls lie collections of vampire lore, mysterious riddles,
-        supernatural legends, and discussions about the worlds that have captured
-        the human imagination for centuries.
+        Two of fiction's most iconic vampires. Klaus brings the raw
+        power of the Original Hybrid, while Lestat relies on centuries
+        of experience, cunning, and supernatural gifts.
     </p>
 
-    <h2>🌙 The Curator's Note</h2>
+    <p><strong>The Midnight Archive Verdict:</strong> Klaus wins in a straight fight, but Lestat is unpredictable enough that nothing is ever certain.</p>
+</div>
 
-    <div class="note">
-        "Some say the Archive was built to preserve forgotten knowledge.
-        Others believe it exists to hide truths that the world was never
-        meant to remember. Whatever the reason, every visitor leaves with
-        a new question... and very few leave unchanged."
-    </div>
 <footer>
     <p>🦇 The Midnight Archive 🦇</p>
     <p><em>"Where shadows tell stories and every riddle hides a secret."</em></p>
     <p>© 2026 • Built in the shadows.</p>
 </footer>
+
 </div>
 
 </body>

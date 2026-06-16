@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Midnight Archive - Character Archive</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        body {
+            background-color: #111;
+            color: #eee;
+            font-family: Georgia, serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .box {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1, h2 {
+            color: #c79b2c;
+        }
+
+        .character {
+            border: 1px solid #444;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            background: #1a1a1a;
+        }
+
+        nav {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #c79b2c;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #999;
+            text-align: center;
+        }
+      .stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+        radial-gradient(2px 2px at 120px 80px, #ddd, transparent),
+        radial-gradient(1.5px 1.5px at 220px 150px, #fff, transparent),
+        radial-gradient(2px 2px at 320px 50px, #ccc, transparent),
+        radial-gradient(1.5px 1.5px at 420px 180px, #fff, transparent);
+    background-repeat: repeat;
+    background-size: 500px 250px;
+    animation: twinkle 8s infinite linear;
+    opacity: 0.35;
+    z-index: -1;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.25; }
+    50% { opacity: 0.4; }
+    100% { opacity: 0.25; }
+}
+      .mist {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255,255,255,0.04) 40%,
+        rgba(255,255,255,0.06) 50%,
+        rgba(255,255,255,0.04) 60%,
+        transparent 100%
+    );
+
+    animation: mistMove 18s linear infinite;
+    opacity: 0.6;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes mistMove {
+    0% {
+        transform: translateX(-30%);
+    }
+    100% {
+        transform: translateX(30%);
+    }
+}
+      .card, .character, .battle, .entry, .map-card, .favorite {
+    transition: all 0.3s ease;
+      }
+      .card:hover,
+.character:hover,
+.battle:hover,
+.entry:hover,
+.map-card:hover,
+.favorite:hover {
+    transform: translateY(-6px);
+    border-color: #c79b2c;
+    box-shadow: 0 10px 25px rgba(199, 155, 44, 0.25);
+}
+      .card:hover h2,
+.character:hover h2,
+.battle:hover h2,
+.map-card:hover h2 {
+    text-shadow: 0 0 10px rgba(199, 155, 44, 0.4);
+}
+    </style>
+</head>
+<body>
+<div class="stars"></div>
+<div class="mist"></div>
+<div class="box">
+
+<nav>
+    <a href="index.html">|Home|</a>
+    <a href="library.html">|Library|</a>
+    <a href="characters.html">|Characters|</a>
+    <a href="battle-arena.html">|Battle Arena|</a>
+    <a href="riddles.html">|Riddle Vault|</a>
+    <a href="debates.html">|Debates|</a>
+    <a href="about.html">|About|</a>
+    <a href="journal.html">|Journal|</a>
+    <a href="archive-map.html">|Archive Map|</a>
+    <a href="guestbook.html">|Guestbook|</a>
+</nav>
+
+<h1>🦇 Character Archive 🦇</h1>
+
+<p>Explore the legends, monsters, and antiheroes that haunt the shadows of myth and dark fantasy.</p>
+
+<div class="character">
+    <h2>🧛 Dracula</h2>
+    <p><strong>Origin:</strong> The immortal Count of Transylvania, inspired by folklore and immortalized by Bram Stoker.</p>
+    <p><strong>Abilities:</strong> Superhuman strength, shapeshifting, immortality, and control over wolves and bats.</p>
+  <p><strong>Power Rating:</strong> ★★★★★ (Lord of the Night)</p>
+    <p><strong>Famous Quote:</strong> <em>"I am... Dracula."</em></p>
+</div>
+<div class="character">
+    <h2>🩸 Lestat de Lioncourt</h2>
+    <p><strong>Origin:</strong> A French nobleman transformed into a vampire, Lestat became one of the most charismatic and complex immortals in gothic fiction.</p>
+    <p><strong>Abilities:</strong> Superhuman speed and strength, heightened senses, immortality, and a powerful hypnotic presence.</p>
+  <p><strong>Power Rating:</strong> ★★★★☆ (The Brat Prince)</p>
+    <p><strong>Famous Quote:</strong> <em>"Evil is a point of view."</em></p>
+</div>
+
+<div class="character">
+    <h2>🐺 Klaus Mikaelson</h2>
+    <p><strong>Origin:</strong> The first hybrid, born of both vampire and werewolf blood, feared by enemies and family alike.</p>
+    <p><strong>Abilities:</strong> Original vampire powers, werewolf abilities, near invulnerability, and centuries of combat experience.</p>
+  <p><strong>Power Rating:</strong> ★★★★★ (The Original Hybrid)</p>
+    <p><strong>Famous Quote:</strong> <em>"They call me the great evil, but I'm only a man who wants to be with his family."</em></p>
+</div>
+
+<div class="character">
+    <h2>⚔️ Geralt of Rivia</h2>
+    <p><strong>Origin:</strong> A witcher trained from childhood to hunt monsters, wandering a dangerous world where humans can be worse than beasts.</p>
+    <p><strong>Abilities:</strong> Master swordsman, enhanced reflexes, alchemy, and magical signs.</p>
+  <p><strong>Power Rating:</strong> ★★★★☆ (Master Witcher)</p>
+    <p><strong>Famous Quote:</strong> <em>"Evil is evil. Lesser, greater, middling... it makes no difference."</em></p>
+</div>
+  
+<footer>
+    <p>🦇 The Midnight Archive 🦇</p>
+    <p><em>"Where shadows tell stories and every riddle hides a secret."</em></p>
+    <p>© 2026 • Built in the shadows.</p>
+</footer>
+
+</div>
+
+</body>
+</html>

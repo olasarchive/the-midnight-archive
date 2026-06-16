@@ -2,13 +2,15 @@
 <html>
 <head>
     <title>The Midnight Archive</title>
-
+    <link rel="icon" type="image/png" href="favicon.png">
     <style> 
       .cards {
     margin-top: 40px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+        position: relative;
+z-index: 1;
 }
 
 .card {
@@ -138,19 +140,145 @@ nav a {
 nav a:hover {
     text-decoration: underline;
 }
+      .card a {
+    color: #c79b2c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+      .character:hover {
+    transform: scale(1.02);
+    transition: 0.3s;
+    border-color: #c79b2c;
+      }
+      button {
+    background: #1a1a1a;
+    color: #c79b2c;
+    border: 1px solid #c79b2c;
+    padding: 10px 18px;
+    margin-top: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background: #2a2a2a;
+}
+      blockquote {
+    font-style: italic;
+    color: #cfcfcf;
+    border-left: 3px solid #c79b2c;
+    padding-left: 15px;
+    margin: 20px 0;
+    line-height: 1.6;
+      }
+      input {
+    background: #1a1a1a;
+    color: #eee;
+    border: 1px solid #c79b2c;
+    font-size: 15px;
+      }
+      .stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+        radial-gradient(2px 2px at 120px 80px, #dddddd, transparent),
+        radial-gradient(1.5px 1.5px at 220px 150px, #ffffff, transparent),
+        radial-gradient(2px 2px at 320px 50px, #cccccc, transparent),
+        radial-gradient(1.5px 1.5px at 420px 180px, #ffffff, transparent);
+    background-repeat: repeat;
+    background-size: 500px 250px;
+    animation: twinkle 8s linear infinite;
+    opacity: 0.35;
+    z-index: -1;
+        .box {
+    position: relative;
+    z-index: 1;
+        }
+}
+
+@keyframes twinkle {
+    0%   { opacity: 0.25; }
+    50%  { opacity: 0.4; }
+    100% { opacity: 0.25; }
+}
+      .mist {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255,255,255,0.04) 40%,
+        rgba(255,255,255,0.06) 50%,
+        rgba(255,255,255,0.04) 60%,
+        transparent 100%
+    );
+
+    animation: mistMove 18s linear infinite;
+    opacity: 0.6;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes mistMove {
+    0% {
+        transform: translateX(-30%);
+    }
+    100% {
+        transform: translateX(30%);
+    }
+}
+      .card, .character, .battle, .entry, .map-card, .favorite {
+    transition: all 0.3s ease;
+      }
+      .card:hover,
+.character:hover,
+.battle:hover,
+.entry:hover,
+.map-card:hover,
+.favorite:hover {
+    transform: translateY(-6px);
+    border-color: #c79b2c;
+    box-shadow: 0 10px 25px rgba(199, 155, 44, 0.25);
+}
+      .card:hover h2,
+.character:hover h2,
+.battle:hover h2,
+.map-card:hover h2 {
+    text-shadow: 0 0 10px rgba(199, 155, 44, 0.4);
+}
     </style>
 </head>
 
 <body>
-
+  
+    <div class="stars"></div>
+    <div class="mist"></div>
     <div class="box">
-      <nav>
-    <a href="index.html">Home</a>
-    <a href="library.html">Library</a>
-    <a href="riddles.html">Riddle Vault</a>
-    <a href="debates.html">Debates</a>
-    <a href="about.html">About</a>
-      </nav>
+      
+   <nav>
+       <a href="index.html">|Home|</a>
+       <a href="library.html">|Library|</a>
+       <a href="characters.html">|Characters|</a>
+       <a href="battle-arena.html">|Battle Arena|</a>
+       <a href="riddles.html">|Riddle Vault|</a>
+       <a href="debates.html">|Debates|</a>
+       <a href="about.html">|About|</a>
+       <a href="journal.html">|Journal</a>
+       <a href="archive-map.html">|Archive Map|</a>
+       <a href="guestbook.html">|Guestbook|</a>
+   </nav>
         <div class="banner">
 
     <img src="logo.png" alt="The Midnight Archive Logo" class="logo">
@@ -199,6 +327,28 @@ nav a:hover {
     </div> <div class="card" style="margin-top: 30px;">
     <h3>📜 Featured Lore</h3>
 
+      <div class="card">
+    <h2>🌙 Character of the Night</h2>
+
+    <h3 id="character-name">🧛 Dracula</h3>
+
+    <p id="character-description">
+        The immortal Count of Transylvania and the most iconic vampire in literature.
+    </p>
+
+    <a href="characters.html">🦇 Visit the Character Archive →</a>
+      </div>
+  
+    <h3>🧛 Dracula</h3>
+
+    <p>
+        The immortal Count of Transylvania has haunted human imagination
+        for over a century. Part monster, part tragic nobleman, Dracula
+        remains the undisputed king of vampire legends.
+    </p>
+
+    <a href="characters.html">🦇 Enter the Character Archive →</a>
+</div>
     <p>
         <strong>The First Vampire</strong>
     </p>
@@ -237,6 +387,70 @@ nav a:hover {
         Reveal Another Quote
     </button>
 </div>
+  <div class="card">
+    <h2>🧩 Riddle of the Night</h2>
+
+    <p id="riddle-text">
+        I am born from fear, fed by certainty, and vanish when questioned. What am I?
+    </p>
+
+    <button onclick="newRiddle()">Reveal Another Riddle</button>
+  </div>
+  <div class="card">
+    <h2>📜 From the Archive Keeper</h2>
+
+    <p>
+        "Perhaps monsters survive because they carry the fears we cannot
+        bear to face alone."
+    </p>
+
+    <a href="journal.html">📖 Read the Journal →</a>
+  </div>
+
+  <div class="card">
+    <h2>🌙 Quote from the Shadows</h2>
+
+    <blockquote id="shadow-quote">
+        "There are nights when the wolves are silent and only the moon howls."
+    </blockquote>
+  </div>
+  <div class="card">
+    <h2>🗺️ Lost in the Shadows?</h2>
+
+    <p>
+        The Midnight Archive has grown. If you seek a particular legend,
+        puzzle, or debate, consult the Archive Map and choose your path.
+    </p>
+
+    <a href="archive-map.html">🦇 Open the Archive Map →</a>
+  </div>
+  <div class="card">
+    <h2>🔎 Search the Midnight Archive</h2>
+
+    <p>Looking for a legend, a riddle, or a forgotten story? Type a keyword below.</p>
+
+    <input type="text" id="searchBox"
+        placeholder="Try: vampire, Dracula, riddle, journal..."
+        style="width:80%; padding:10px; border-radius:8px; margin-top:10px;">
+
+    <br><br>
+
+    <button onclick="searchArchive()">
+        🔍 Search the Archive
+    </button>
+  </div>
+
+  <div class="card">
+    <h2>📖 Sign the Book of Visitors</h2>
+
+    <p>
+        Every traveler leaves behind a thought. Add your own words to the
+        pages of the Midnight Archive.
+    </p>
+
+    <a href="guestbook.html">🕯️ Open the Guestbook →</a>
+  </div>
+  
 <footer>
     <p>🦇 The Midnight Archive 🦇</p>
     <p><em>"Where shadows tell stories and every riddle hides a secret."</em></p>
@@ -260,11 +474,108 @@ function newQuote() {
     document.getElementById("shadow-quote").innerHTML =
         "“" + quotes[randomIndex] + "”";
 }
+  const riddles = [
+    "I am born from fear, fed by certainty, and vanish when questioned. What am I?",
+    "Free to everyone yet costs the most. I'm given away daily but hoarded by the desperate. What am I?",
+    "The more of me you take, the more you leave behind. What am I?",
+    "I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?",
+    "The one who makes it has no need of it. The one who buys it never uses it. The one who uses it never knows they are. What is it?"
+];
+
+function newRiddle() {
+    const random =
+        riddles[Math.floor(Math.random() * riddles.length)];
+
+    document.getElementById("riddle-text").textContent = random;
+}
 </script>
 
 </body>
 </html>
     </div>
+<script>
+const characters = [
+{
+    name: "🧛 Dracula",
+    description: "The immortal Count of Transylvania and the most iconic vampire in literature."
+},
+{
+    name: "🩸 Lestat de Lioncourt",
+    description: "The charismatic Brat Prince whose adventures span centuries."
+},
+{
+    name: "🐺 Klaus Mikaelson",
+    description: "The Original Hybrid, feared by enemies and family alike."
+},
+{
+    name: "⚔️ Geralt of Rivia",
+    description: "A monster hunter walking the thin line between humanity and darkness."
+}
+];
+
+const randomCharacter =
+    characters[Math.floor(Math.random() * characters.length)];
+
+document.getElementById("character-name").textContent =
+    randomCharacter.name;
+
+document.getElementById("character-description").textContent =
+    randomCharacter.description;
+  const shadowQuotes = [
+    "There are nights when the wolves are silent and only the moon howls.",
+    "Monsters are often just stories told by the victorious.",
+    "Immortality is the longest road to loneliness.",
+    "Every forgotten legend waits patiently to be believed again.",
+    "The oldest castles are built not from stone, but from secrets.",
+    "Some doors in the dark should remain unopened.",
+    "A riddle is simply a truth wearing a mask."
+];
+
+const randomQuote =
+    shadowQuotes[Math.floor(Math.random() * shadowQuotes.length)];
+
+document.getElementById("shadow-quote").textContent =
+    randomQuote;
+  function searchArchive() {
+
+    let query =
+        document.getElementById("searchBox")
+        .value
+        .toLowerCase();
+
+    if (query.includes("vampire") || query.includes("dracula")) {
+        window.location.href = "characters.html";
+    }
+
+    else if (query.includes("lestat") || query.includes("klaus") || query.includes("geralt")) {
+        window.location.href = "characters.html";
+    }
+
+    else if (query.includes("riddle")) {
+        window.location.href = "riddles.html";
+    }
+
+    else if (query.includes("battle") || query.includes("fight")) {
+        window.location.href = "battle-arena.html";
+    }
+
+    else if (query.includes("journal") || query.includes("keeper")) {
+        window.location.href = "journal.html";
+    }
+
+    else if (query.includes("library") || query.includes("myth") || query.includes("origins")) {
+        window.location.href = "library.html";
+    }
+
+    else if (query.includes("debate")) {
+        window.location.href = "debates.html";
+    }
+
+    else {
+        alert("📜 The Archive could not find that entry... perhaps it remains hidden in the shadows.");
+    }
+  }
+</script>
 
 </body>
 </html>

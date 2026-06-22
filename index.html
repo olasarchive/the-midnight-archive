@@ -4,6 +4,20 @@
     <title>The Midnight Archive</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <style> 
+      .watcher-eye {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    font-size: 28px;
+    opacity: 0.06;
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.watcher-eye:hover {
+    opacity: 0.18;
+}
       .cards {
     margin-top: 40px;
     display: flex;
@@ -128,14 +142,34 @@ footer p {
     margin-bottom: 30px;
     text-align: center;
 }
+      .logo {
+    transition: 0.4s ease;
+}
+
+.logo:hover {
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 12px rgba(199,155,44,0.5));
+}
 
 nav a {
     color: #c79b2c;
     text-decoration: none;
-    margin: 0 15px;
+    margin: 0 12px;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
+
+    padding: 6px 10px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    transition: 0.3s;
 }
+      nav a:hover {
+    border-color: #c79b2c;
+    background: rgba(199, 155, 44, 0.08);
+    box-shadow: 0 0 10px rgba(199, 155, 44, 0.15);
+    transform: translateY(-2px);
+      }
 
 nav a:hover {
     text-decoration: underline;
@@ -258,6 +292,63 @@ button:hover {
 .map-card:hover h2 {
     text-shadow: 0 0 10px rgba(199, 155, 44, 0.4);
 }
+      .hero {
+    margin-bottom: 20px;
+}
+
+.hero img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+}
+      .hero {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.hero img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+    filter: brightness(0.85) contrast(1.1);
+      }
+      .hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+
+    background: radial-gradient(
+        circle at center,
+        transparent 40%,
+        rgba(0,0,0,0.6) 100%
+    );
+
+    pointer-events: none;
+      }
+      nav {
+    background: #1a1111;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid #9c2a2a;
+    margin-bottom: 20px;
+}
+
+nav a {
+    color: #e0d0c0;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ffaaaa;
+}
     </style>
 </head>
 
@@ -279,6 +370,14 @@ button:hover {
        <a href="archive-map.html">|Archive Map|</a>
        <a href="guestbook.html">|Guestbook|</a>
    </nav>
+      <div class="hero">
+
+    <img src="hero.jpg"
+         alt="The Midnight Archive">
+        
+      </div>
+      
+      
         <div class="banner">
 
     <img src="logo.png" alt="The Midnight Archive Logo" class="logo">
@@ -450,7 +549,38 @@ button:hover {
 
     <a href="guestbook.html">🕯️ Open the Guestbook →</a>
   </div>
-  
+  <div class="card" style="text-align:center;">
+    <h2>🔐 Archive Access Terminal</h2>
+
+    <p>Authorized personnel only.</p>
+
+    <input
+        id="secretCode"
+        type="password"
+        placeholder="Enter access code"
+        style="
+            padding:12px;
+            width:80%;
+            max-width:300px;
+            border-radius:8px;
+            border:none;
+            margin-top:10px;
+        "
+    >
+
+    <br><br>
+
+    <button onclick="checkCode()" style="
+        padding:12px 20px;
+        border:none;
+        border-radius:8px;
+        cursor:pointer;
+    ">
+        Submit
+    </button>
+
+    <p id="accessMessage"></p>
+  </div>
 <footer>
     <p>🦇 The Midnight Archive 🦇</p>
     <p><em>"Where shadows tell stories and every riddle hides a secret."</em></p>
@@ -489,7 +619,20 @@ function newRiddle() {
     document.getElementById("riddle-text").textContent = random;
 }
 </script>
+<script>
+function checkCode() {
+    let code = document.getElementById("secretCode").value.toLowerCase();
+    let message = document.getElementById("accessMessage");
 
+    if (code === "watcher") {
+        window.location.href = "forbidden-wing.html";
+    } else {
+        message.innerText = "ACCESS DENIED";
+        message.style.color = "#b22222";
+    }
+}
+</script>
+  <div class="watcher-eye">⟁</div>
 </body>
 </html>
     </div>

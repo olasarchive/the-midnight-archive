@@ -1,724 +1,147 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>The Midnight Archive</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <style> 
-      .watcher-eye {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    font-size: 28px;
-    opacity: 0.06;
-    z-index: 1;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-}
-
-.watcher-eye:hover {
-    opacity: 0.18;
-}
-      .cards {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-        position: relative;
-z-index: 1;
-}
-
-.card {
-    background: #222;
-    border: 1px solid #c79b2c;
-    border-radius: 10px;
-    padding: 20px;
-}
-
-.card h3 {
-    color: #c79b2c;
-    margin-bottom: 10px;
-}
-        body {
-            background-color: #111111;
-            color: #f0f0f0;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 40px;
-        }
-
-        h1 {
-            color: #c79b2c;
-            font-size: 32px;
-        }
-
-        p {
-            font-size: 22px;
-            color: #cccccc;
-        }
-
-        .box {
-            margin: 50px auto;
-            max-width: 700px;
-            background: #1c1c1c;
-            padding: 30px;
-            border-radius: 15px;
-            border: 2px solid #c79b2c;
-        }
-
-        button {
-            background: #6b0000;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            margin-top: 20px;
-            border-radius: 8px;
-            font-size: 18px;
-        } 
-      nav {
-    margin-bottom: 30px;
-}
-
-nav a {
-    color: #c79b2c;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-      .quote-box {
-    margin-top: 30px;
-    background: #181818;
-    border-left: 4px solid #c79b2c;
-    padding: 20px;
-    border-radius: 10px;
-    font-style: italic;
-}
-
-.quote-author {
-    margin-top: 10px;
-    color: #c79b2c;
-    font-weight: bold;
-      }
-      footer {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #444;
-    color: #999;
-    font-size: 14px;
-}
-
-footer p {
-    margin: 8px 0;
-  }
-      .banner {
-    margin-bottom: 30px;
-    padding: 25px;
-    border: 2px solid #c79b2c;
-    border-radius: 15px;
-    background: linear-gradient(to bottom, #1a1a1a, #111111);
-}
-
-.banner h1 {
-    margin: 0;
-    font-size: 48px;
-}
-
-.banner p {
-    color: #cccccc;
-    font-style: italic;
-    margin-top: 10px;
-}
-      .logo {
-    display: block;
-    width: 100%;
-    max-width: 450px;
-    margin: 0 auto 20px auto;
-      }
-      nav {
-    margin-bottom: 30px;
-    text-align: center;
-}
-      .logo {
-    transition: 0.4s ease;
-}
-
-.logo:hover {
-    transform: scale(1.03);
-    filter: drop-shadow(0 0 12px rgba(199,155,44,0.5));
-}
-
-nav a {
-    color: #c79b2c;
-    text-decoration: none;
-    margin: 0 12px;
-    font-weight: bold;
-    font-size: 16px;
-
-    padding: 6px 10px;
-    border: 1px solid transparent;
-    border-radius: 8px;
-
-    transition: 0.3s;
-}
-      nav a:hover {
-    border-color: #c79b2c;
-    background: rgba(199, 155, 44, 0.08);
-    box-shadow: 0 0 10px rgba(199, 155, 44, 0.15);
-    transform: translateY(-2px);
-      }
-
-nav a:hover {
-    text-decoration: underline;
-}
-      .card a {
-    color: #c79b2c;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.card a:hover {
-    text-decoration: underline;
-}
-      .character:hover {
-    transform: scale(1.02);
-    transition: 0.3s;
-    border-color: #c79b2c;
-      }
-      button {
-    background: #1a1a1a;
-    color: #c79b2c;
-    border: 1px solid #c79b2c;
-    padding: 10px 18px;
-    margin-top: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 15px;
-}
-
-button:hover {
-    background: #2a2a2a;
-}
-      blockquote {
-    font-style: italic;
-    color: #cfcfcf;
-    border-left: 3px solid #c79b2c;
-    padding-left: 15px;
-    margin: 20px 0;
-    line-height: 1.6;
-      }
-      input {
-    background: #1a1a1a;
-    color: #eee;
-    border: 1px solid #c79b2c;
-    font-size: 15px;
-      }
-      .stars {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image:
-        radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
-        radial-gradient(2px 2px at 120px 80px, #dddddd, transparent),
-        radial-gradient(1.5px 1.5px at 220px 150px, #ffffff, transparent),
-        radial-gradient(2px 2px at 320px 50px, #cccccc, transparent),
-        radial-gradient(1.5px 1.5px at 420px 180px, #ffffff, transparent);
-    background-repeat: repeat;
-    background-size: 500px 250px;
-    animation: twinkle 8s linear infinite;
-    opacity: 0.35;
-    z-index: -1;
-        .box {
-    position: relative;
-    z-index: 1;
-        }
-}
-
-@keyframes twinkle {
-    0%   { opacity: 0.25; }
-    50%  { opacity: 0.4; }
-    100% { opacity: 0.25; }
-}
-      .mist {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent 0%,
-        rgba(255,255,255,0.04) 40%,
-        rgba(255,255,255,0.06) 50%,
-        rgba(255,255,255,0.04) 60%,
-        transparent 100%
-    );
-
-    animation: mistMove 18s linear infinite;
-    opacity: 0.6;
-    z-index: -1;
-    pointer-events: none;
-}
-
-@keyframes mistMove {
-    0% {
-        transform: translateX(-30%);
-    }
-    100% {
-        transform: translateX(30%);
-    }
-}
-      .card, .character, .battle, .entry, .map-card, .favorite {
-    transition: all 0.3s ease;
-      }
-      .card:hover,
-.character:hover,
-.battle:hover,
-.entry:hover,
-.map-card:hover,
-.favorite:hover {
-    transform: translateY(-6px);
-    border-color: #c79b2c;
-    box-shadow: 0 10px 25px rgba(199, 155, 44, 0.25);
-}
-      .card:hover h2,
-.character:hover h2,
-.battle:hover h2,
-.map-card:hover h2 {
-    text-shadow: 0 0 10px rgba(199, 155, 44, 0.4);
-}
-      .hero {
-    margin-bottom: 20px;
-}
-
-.hero img {
-    width: 100%;
-    border-radius: 12px;
-    display: block;
-}
-      .hero {
-    position: relative;
-    margin-bottom: 25px;
-}
-
-.hero img {
-    width: 100%;
-    border-radius: 12px;
-    display: block;
-    filter: brightness(0.85) contrast(1.1);
-      }
-      .hero::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 12px;
-
-    background: radial-gradient(
-        circle at center,
-        transparent 40%,
-        rgba(0,0,0,0.6) 100%
-    );
-
-    pointer-events: none;
-      }
-      nav {
-    background: #1a1111;
-    padding: 15px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 3px solid #9c2a2a;
-    margin-bottom: 20px;
-}
-
-nav a {
-    color: #e0d0c0;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #ffaaaa;
-}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Midnight Archive</title>
+<link rel="icon" type="image/png" href="favicon.png"><text y=%22.9em%22 font-size=%2290%22>🦇</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  
-    <div class="stars"></div>
-    <div class="mist"></div>
-    <div class="box">
-      
-   <nav>
-       <a href="index.html">|Home|</a>
-       <a href="library.html">|Library|</a>
-       <a href="characters.html">|Characters|</a>
-       <a href="battle-arena.html">|Battle Arena|</a>
-       <a href="riddles.html">|Riddle Vault|</a>
-       <a href="debates.html">|Debates|</a>
-       <a href="about.html">|About|</a>
-       <a href="journal.html">|Journal</a>
-       <a href="archive-map.html">|Archive Map|</a>
-       <a href="guestbook.html">|Guestbook|</a>
-   </nav>
-      <div class="hero">
+<div class="sky" aria-hidden="true"><div class="stars"></div><div class="stars b"></div><div class="mist"></div></div>
+<header>
+<nav aria-label="Main">
+<a href="#home">Home</a><a href="#map">Archive Map</a><a href="#library">Library</a><a href="#characters">Characters</a><a href="#arena">Battle Arena</a><a href="#riddles">Riddle Vault</a><a href="#debates">Debates</a><a href="#journal">Journal</a><a href="#guestbook">Guestbook</a><a href="#about">About</a>
+</nav>
+</header>
+<main>
 
-    <img src="hero.jpg"
-         alt="The Midnight Archive">
-        
-      </div>
-      
-      
-        <div class="banner">
-
-    <img src="logo.png" alt="The Midnight Archive Logo" class="logo">
-
-    <p>Where shadows tell stories and every riddle hides a secret.</p>
-
-    <p>
-        📜 An ever-growing collection of legends, riddles,
-        and forgotten lore.
-    </p>
-
-        </div>
-
-        <hr>
-
-        <h2>🌙 Riddle of the Day</h2>
-
-        <p>
-            I speak without a mouth and hear without ears.<br>
-            I have no body, but I come alive with the wind.<br>
-            What am I?
-        </p>
-
-        <button onclick="showAnswer()">Reveal Answer</button>
-
-<p id="answer" style="display:none; margin-top:20px;">
-    ✨ The answer is: <strong>An Echo.</strong>
-</p>
-<a href="library.html" style="text-decoration: none; color: inherit;">
-    <div class="card">
-        <h3>🦇 Dark Fantasy Library</h3>
-        <p>
-            Explore vampire legends, supernatural creatures,
-            forgotten myths, and dark fantasy worlds.
-        </p>
-    </div>
-</a>
-
-    <a href="riddles.html" style="text-decoration:none; color:inherit;">
-    <div class="card">
-        <h3>🧩 The Riddle Vault</h3>
-        <p>
-            Challenge yourself with mysterious riddles,
-            logic puzzles, and secrets hidden in the shadows.
-        </p>
-    </div> <div class="card" style="margin-top: 30px;">
-    <h3>📜 Featured Lore</h3>
-
-      <div class="card">
-    <h2>🌙 Character of the Night</h2>
-
-    <h3 id="character-name">🧛 Dracula</h3>
-
-    <p id="character-description">
-        The immortal Count of Transylvania and the most iconic vampire in literature.
-    </p>
-
-    <a href="characters.html">🦇 Visit the Character Archive →</a>
-      </div>
-  
-    <h3>🧛 Dracula</h3>
-
-    <p>
-        The immortal Count of Transylvania has haunted human imagination
-        for over a century. Part monster, part tragic nobleman, Dracula
-        remains the undisputed king of vampire legends.
-    </p>
-
-    <a href="characters.html">🦇 Enter the Character Archive →</a>
+<section id="v-home">
+<div class="hero">
+<img src="logo-transparent.png" alt="The Midnight Archive: a castle under a full moon between bat wings">
+<p>Where shadows tell stories and every riddle hides a secret.</p>
+<p>An ever-growing collection of legends, riddles, and forgotten lore.</p>
 </div>
-    <p>
-        <strong>The First Vampire</strong>
-    </p>
-
-    <p>
-        Legends tell of an immortal wanderer who traded sunlight for
-        eternity. Some say he was cursed, others believe he made the
-        choice willingly. Every culture has its own version of the tale,
-        but one question remains...
-    </p>
-
-    <p style="font-style: italic; color: #c79b2c;">
-        "Would immortality be a blessing, or the oldest curse?"
-    </p>
-    </div>
-    </a>
-
-
-      <a href="debates.html" style="text-decoration: none; color: inherit;">
-    <div class="card">
-        <h3>⚔️ The Hall of Debates</h3>
-        <p>
-            Explore timeless questions, legendary rivalries,
-            and the moral dilemmas hidden within the darkness.
-        </p>
-    </div>
-      </a>
-<div class="quote-box">
-    <h3>🌙 Quote from the Shadows</h3>
-
-    <p id="shadow-quote">
-        Press the button below to uncover a forgotten truth...
-    </p>
-
-    <button onclick="newQuote()">
-        Reveal Another Quote
-    </button>
+<div class="tablet">
+<h2 style="margin-top:0">Riddle of the Day</h2>
+<p id="daily"></p>
 </div>
-  <div class="card">
-    <h2>🧩 Riddle of the Night</h2>
+<h2>Where to next</h2>
+<ul class="index">
+<li><a href="#library">Dark Fantasy Library</a><span>Vampire legends, forgotten myths and original articles.</span></li>
+<li><a href="#characters">Character Archive</a><span>The immortals, monsters and hunters of legend.</span></li>
+<li><a href="#arena">Battle Arena</a><span>Legendary matchups. Cast your verdict.</span></li>
+<li><a href="#riddles">Riddle Vault</a><span>Puzzles waiting to be solved.</span></li>
+<li><a href="#debates">Hall of Debates</a><span>Questions with no easy answers.</span></li>
+<li><a href="#journal">Archive Keeper’s Journal</a><span>Notes on myths, immortality and forgotten stories.</span></li>
+</ul>
+<h2>Lost in the Shadows?</h2>
+<p>The Archive has grown. Consult the <a href="#map">Archive Map</a> to choose your path, or read <a href="#about">About the Archive</a>.</p>
+<h2>Quote from the Shadows</h2>
+<blockquote id="quote"></blockquote>
+<button id="newq">Show another quote</button>
+</section>
 
-    <p id="riddle-text">
-        I am born from fear, fed by certainty, and vanish when questioned. What am I?
-    </p>
+<section id="v-library" hidden>
+<h1>Dark Fantasy Library</h1>
+<p class="muted">Welcome to the hidden shelves: vampires, ancient legends, forgotten kingdoms and creatures that walk in the dark.</p>
+<ul class="index">
+<li><a href="#origins">The Origins of the Vampire Myth</a><span>The ancient fears that gave birth to one of humanity’s oldest monsters.</span></li>
+<li><a href="#arena">Character Showdown</a><span>Who would win in a battle of immortals?</span></li>
+<li><a href="#debates">Featured Question</a><span>If you were offered immortality tonight, would you accept it?</span></li>
+</ul>
+</section>
 
-    <button onclick="newRiddle()">Reveal Another Riddle</button>
-  </div>
-  <div class="card">
-    <h2>📜 From the Archive Keeper</h2>
+<section id="v-origins" class="prose" hidden>
+<p><a href="#library">Back to the Library</a></p>
+<h1>The Origins of the Vampire Myth</h1>
+<p class="muted">Tracing the legends behind one of humanity’s oldest monsters.</p>
+<blockquote>“Every culture fears the darkness. Some simply gave that darkness a name.”</blockquote>
+<p>Long before vampires became the elegant immortals of modern books and television, they existed in whispers, legends and ancient fears. Nearly every civilization told stories of creatures that returned from the dead to feed upon the living, though their names and appearances differed.</p>
+<p>In the folklore of Eastern Europe, the vampire was rarely charming. These beings were described as restless corpses, cursed souls, or spirits that rose from the grave to torment their families and villages. Illness and unexplained deaths were often blamed on them.</p>
+<p>Many historians believe the myth grew from humanity’s attempt to explain the unknown. Before modern medicine, disease could spread through a community without warning. When several people died in quick succession, fear filled the gaps left by missing science. In some places, graves were reopened to search for signs that the dead had returned.</p>
+<p>Over time, legends evolved. Ancient tales mixed with local traditions, creating countless versions of the vampire. Some drank blood, others stole life energy or preyed upon dreams. Yet they shared one idea: death was not always the end.</p>
+<p>In the nineteenth century, Gothic literature changed the vampire from a mindless horror into a mysterious and intelligent immortal, whose elegance, power and loneliness still capture the imagination today.</p>
+<p>Perhaps that is why the myth has endured. It asks our oldest questions. What if death could be defeated? What price would immortality demand? And if eternal life were possible, would anyone truly want it?</p>
+<blockquote>Would immortality be the greatest gift… or the oldest curse?</blockquote>
+</section>
 
-    <p>
-        "Perhaps monsters survive because they carry the fears we cannot
-        bear to face alone."
-    </p>
+<section id="v-characters" hidden>
+<h1>Character Archive</h1>
+<p class="muted">The legends, monsters and antiheroes that haunt myth and dark fantasy.</p>
+<div id="chars"></div>
+</section>
 
-    <a href="journal.html">📖 Read the Journal →</a>
-  </div>
+<section id="v-arena" hidden>
+<h1>The Battle Arena</h1>
+<p class="muted">Where legends collide and only one leaves the shadows victorious. These are friendly debates for fans of dark fantasy.</p>
+<div id="battles"></div>
+</section>
 
-  <div class="card">
-    <h2>🌙 Quote from the Shadows</h2>
+<section id="v-riddles" hidden>
+<h1>The Riddle Vault</h1>
+<p class="muted">Welcome, Seeker. Solve each riddle before you open its answer.</p>
+<div id="riddlelist"></div>
+</section>
 
-    <blockquote id="shadow-quote">
-        "There are nights when the wolves are silent and only the moon howls."
-    </blockquote>
-  </div>
-  <div class="card">
-    <h2>🗺️ Lost in the Shadows?</h2>
+<section id="v-debates" hidden>
+<h1>The Hall of Debates</h1>
+<p class="muted">The oldest chamber of the Archive. Questions have no easy answers, so choose where you stand.</p>
+<div id="debatelist"></div>
+</section>
 
-    <p>
-        The Midnight Archive has grown. If you seek a particular legend,
-        puzzle, or debate, consult the Archive Map and choose your path.
-    </p>
+<section id="v-journal" hidden>
+<h1>The Archive Keeper’s Journal</h1>
+<p class="muted">Hidden among the shelves are the keeper’s notes on myths, immortality and the questions that refuse to die.</p>
+<div class="row"><h3>Entry I: Why Do Vampires Endure?</h3><p class="muted">Recorded under a moonless sky.</p><p>Every generation reinvents the vampire. Sometimes a monster, sometimes a tragedy, sometimes a mirror of human fear. But the truth is deeper: vampires endure because we never stop asking what immortality would cost.</p></div>
+<div class="row"><h3>Entry II: The Sound of Empty Castles</h3><p class="muted">Recorded during a silent night in the Archive.</p><p>There is a sound old castles are said to make when no one is watching them. Not wind. Not wood. Something slower, like memory stretching through stone.</p></div>
+<div class="row"><h3>Entry III: Riddles Are Not Games</h3><p class="muted">Recorded after solving an unsolved question.</p><p>A riddle is not meant to confuse. It is meant to reveal how you think. Every answer says more about the solver than the question.</p></div>
+</section>
 
-    <a href="archive-map.html">🦇 Open the Archive Map →</a>
-  </div>
-  <div class="card">
-    <h2>🔎 Search the Midnight Archive</h2>
+<section id="v-guestbook" hidden>
+<h1>The Book of Visitors</h1>
+<p class="muted">Travelers leave behind a thought, a warning or a fragment of wisdom. Entries are saved in this browser only.</p>
+<input id="gname" maxlength="40" placeholder="Your name (optional)" aria-label="Your name">
+<textarea id="gmsg" maxlength="300" placeholder="Write your message" aria-label="Your message"></textarea>
+<button id="gsave">Sign the book</button>
+<p id="gerr" class="muted" role="alert"></p>
+<div id="gl"></div>
+</section>
 
-    <p>Looking for a legend, a riddle, or a forgotten story? Type a keyword below.</p>
+<section id="v-map" hidden>
+<h1>The Archive Map</h1>
+<p class="muted">Every corridor leads to another mystery. Choose your path wisely.</p>
+<ul class="index">
+<li><a href="#library">Dark Fantasy Library</a><span>Ancient legends, forgotten folklore and original articles.</span></li>
+<li><a href="#characters">Character Archive</a><span>Meet the immortals, monsters and hunters of legend.</span></li>
+<li><a href="#arena">Battle Arena</a><span>Witness legendary confrontations and impossible matchups.</span></li>
+<li><a href="#journal">Archive Keeper’s Journal</a><span>Notes and reflections from the keeper of the Archive.</span></li>
+<li><a href="#riddles">Riddle Vault</a><span>A collection of riddles waiting to be solved.</span></li>
+<li><a href="#debates">Hall of Debates</a><span>Who would win? Which legend is strongest? Decide for yourself.</span></li>
+<li><a href="#guestbook">Book of Visitors</a><span>Leave your mark in the pages of the Archive.</span></li>
+<li><a href="#about">About the Archive</a><span>Why this place exists.</span></li>
+</ul>
+</section>
 
-    <input type="text" id="searchBox"
-        placeholder="Try: vampire, Dracula, riddle, journal..."
-        style="width:80%; padding:10px; border-radius:8px; margin-top:10px;">
+<section id="v-about" class="prose" hidden>
+<p><a href="#home">⬅ Return to the Main Archive</a></p>
+<h1>🦇 About The Midnight Archive 🦇</h1>
+<p>The Midnight Archive is a digital sanctuary for lovers of dark fantasy, ancient myths, forgotten legends and impossible questions. It is a place where riddles are preserved, old stories are remembered, and debates about immortality, monsters and mystery never truly end.</p>
+<h2>📚 What You’ll Find Here</h2>
+<p>Within these halls lie collections of vampire lore, mysterious riddles, supernatural legends, and discussions about the worlds that have captured the human imagination for centuries.</p>
+<h2>🌙 The Curator’s Note</h2>
+<blockquote>“Some say the Archive was built to preserve forgotten knowledge. Others believe it exists to hide truths that the world was never meant to remember. Whatever the reason, every visitor leaves with a new question… and very few leave unchanged.”</blockquote>
+</section>
 
-    <br><br>
-
-    <button onclick="searchArchive()">
-        🔍 Search the Archive
-    </button>
-  </div>
-
-  <div class="card">
-    <h2>📖 Sign the Book of Visitors</h2>
-
-    <p>
-        Every traveler leaves behind a thought. Add your own words to the
-        pages of the Midnight Archive.
-    </p>
-
-    <a href="guestbook.html">🕯️ Open the Guestbook →</a>
-  </div>
-  <div class="card" style="text-align:center;">
-    <h2>🔐 Archive Access Terminal</h2>
-
-    <p>Authorized personnel only.</p>
-
-    <input
-        id="secretCode"
-        type="password"
-        placeholder="Enter access code"
-        style="
-            padding:12px;
-            width:80%;
-            max-width:300px;
-            border-radius:8px;
-            border:none;
-            margin-top:10px;
-        "
-    >
-
-    <br><br>
-
-    <button onclick="checkCode()" style="
-        padding:12px 20px;
-        border:none;
-        border-radius:8px;
-        cursor:pointer;
-    ">
-        Submit
-    </button>
-
-    <p id="accessMessage"></p>
-  </div>
+</main>
 <footer>
-    <p>🦇 The Midnight Archive 🦇</p>
-    <p><em>"Where shadows tell stories and every riddle hides a secret."</em></p>
-    <p>© 2026 • Built in the shadows.</p>
-</footer></>
-</>
-<script>
-function showAnswer() {
-    document.getElementById("answer").style.display = "block";
-}
-  const quotes = [
-    "Monsters are not always the creatures hiding in the dark. Sometimes they are the ones who fear the light.",
-    "Immortality is not the absence of death, but the burden of endless memory.",
-    "Every ancient ruin was once someone's home.",
-    "The oldest stories survive because they contain the oldest fears.",
-    "Beware the monster that learns to wear a human smile."
-];
-window.onload = newQuote;
-function newQuote() {
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    document.getElementById("shadow-quote").innerHTML =
-        "“" + quotes[randomIndex] + "”";
-}
-  const riddles = [
-    "I am born from fear, fed by certainty, and vanish when questioned. What am I?",
-    "Free to everyone yet costs the most. I'm given away daily but hoarded by the desperate. What am I?",
-    "The more of me you take, the more you leave behind. What am I?",
-    "I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?",
-    "The one who makes it has no need of it. The one who buys it never uses it. The one who uses it never knows they are. What is it?"
-];
+<p><em>“Where shadows tell stories and every riddle hides a secret.”</em></p>
+<p>© 2026 The Midnight Archive. Built in the shadows.</p>
+</footer>
 
-function newRiddle() {
-    const random =
-        riddles[Math.floor(Math.random() * riddles.length)];
-
-    document.getElementById("riddle-text").textContent = random;
-}
-</script>
-<script>
-function checkCode() {
-    let code = document.getElementById("secretCode").value.toLowerCase();
-    let message = document.getElementById("accessMessage");
-
-    if (code === "watcher") {
-        window.location.href = "forbidden-wing.html";
-    } else {
-        message.innerText = "ACCESS DENIED";
-        message.style.color = "#b22222";
-    }
-}
-</script>
-  <div class="watcher-eye">⟁</div>
-</body>
-</html>
-    </div>
-<script>
-const characters = [
-{
-    name: "🧛 Dracula",
-    description: "The immortal Count of Transylvania and the most iconic vampire in literature."
-},
-{
-    name: "🩸 Lestat de Lioncourt",
-    description: "The charismatic Brat Prince whose adventures span centuries."
-},
-{
-    name: "🐺 Klaus Mikaelson",
-    description: "The Original Hybrid, feared by enemies and family alike."
-},
-{
-    name: "⚔️ Geralt of Rivia",
-    description: "A monster hunter walking the thin line between humanity and darkness."
-}
-];
-
-const randomCharacter =
-    characters[Math.floor(Math.random() * characters.length)];
-
-document.getElementById("character-name").textContent =
-    randomCharacter.name;
-
-document.getElementById("character-description").textContent =
-    randomCharacter.description;
-  const shadowQuotes = [
-    "There are nights when the wolves are silent and only the moon howls.",
-    "Monsters are often just stories told by the victorious.",
-    "Immortality is the longest road to loneliness.",
-    "Every forgotten legend waits patiently to be believed again.",
-    "The oldest castles are built not from stone, but from secrets.",
-    "Some doors in the dark should remain unopened.",
-    "A riddle is simply a truth wearing a mask."
-];
-
-const randomQuote =
-    shadowQuotes[Math.floor(Math.random() * shadowQuotes.length)];
-
-document.getElementById("shadow-quote").textContent =
-    randomQuote;
-  function searchArchive() {
-
-    let query =
-        document.getElementById("searchBox")
-        .value
-        .toLowerCase();
-
-    if (query.includes("vampire") || query.includes("dracula")) {
-        window.location.href = "characters.html";
-    }
-
-    else if (query.includes("lestat") || query.includes("klaus") || query.includes("geralt")) {
-        window.location.href = "characters.html";
-    }
-
-    else if (query.includes("riddle")) {
-        window.location.href = "riddles.html";
-    }
-
-    else if (query.includes("battle") || query.includes("fight")) {
-        window.location.href = "battle-arena.html";
-    }
-
-    else if (query.includes("journal") || query.includes("keeper")) {
-        window.location.href = "journal.html";
-    }
-
-    else if (query.includes("library") || query.includes("myth") || query.includes("origins")) {
-        window.location.href = "library.html";
-    }
-
-    else if (query.includes("debate")) {
-        window.location.href = "debates.html";
-    }
-
-    else {
-        alert("📜 The Archive could not find that entry... perhaps it remains hidden in the shadows.");
-    }
-  }
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>

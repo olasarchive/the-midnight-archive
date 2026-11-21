@@ -63,3 +63,7 @@ footer{text-align:center;color:var(--muted);font-size:.9rem;border-top:1px solid
 @keyframes blink{0%,93%,100%{transform:scaleY(0)}96%{transform:scaleY(1)}}
 @media (max-width:520px){.eye{width:62px}}
 @media (prefers-reduced-motion:reduce){.lid{animation:none}#iris{transition:none}}
+
+.record{border:1px solid var(--blood);background:var(--panel);padding:18px 22px;margin:1.6em 0;border-radius:4px}
+.figure{text-align:center;margin:1.6em 0}
+.figure img{width:100%;max-width:650px;height:auto;border-radius:12px;box-shadow:0 0 25px rgba(0,0,0,.65)}

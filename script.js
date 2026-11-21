@@ -55,7 +55,7 @@ drawGuests();
 
 const views=[...document.querySelectorAll("main section")];
 function route(){
-  const id=(location.hash||"#home").slice(1),t=views.find(v=>v.id==="v-"+id)||$("#v-home"),cur=t.id.slice(2)==="origins"?"library":t.id.slice(2);
+  const id=(location.hash||"#home").slice(1),t=views.find(v=>v.id==="v-"+id)||$("#v-home"),cur=["origins","witch","werewolf"].includes(t.id.slice(2))?"library":t.id.slice(2);
   views.forEach(v=>v.hidden=v!==t);
   document.querySelectorAll("nav a").forEach(a=>a.hash==="#"+cur?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
   window.scrollTo(0,0)}

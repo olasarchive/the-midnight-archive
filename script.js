@@ -60,3 +60,13 @@ function route(){
   document.querySelectorAll("nav a").forEach(a=>a.hash==="#"+cur?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
   window.scrollTo(0,0)}
 addEventListener("hashchange",route);route();
+
+const eyeBox=$(".eye"),iris=$("#iris");let lastMove=Date.now();
+function look(x,y){
+  const r=eyeBox.getBoundingClientRect(),dx=x-(r.left+r.width/2),dy=y-(r.top+r.height/2),d=Math.hypot(dx,dy)||1,m=Math.min(1,d/260);
+  iris.style.transform="translate("+(dx/d*m*24)+"px,"+(dy/d*m*9)+"px)"}
+addEventListener("pointermove",e=>{lastMove=Date.now();look(e.clientX,e.clientY)});
+const calm=matchMedia("(prefers-reduced-motion:reduce)");
+setInterval(()=>{
+  if(calm.matches||Date.now()-lastMove<4000)return;
+  iris.style.transform="translate("+((Math.random()*2-1)*22)+"px,"+((Math.random()*2-1)*8)+"px)"},2600);

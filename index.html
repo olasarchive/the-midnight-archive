@@ -12,6 +12,21 @@
 </head>
 <body>
 <div class="sky" aria-hidden="true"><div class="stars"></div><div class="stars b"></div><div class="mist"></div></div>
+<div class="eye" aria-hidden="true">
+<svg viewBox="0 0 120 70">
+<defs>
+<clipPath id="eyeclip"><path d="M4 35C28 6 92 6 116 35C92 64 28 64 4 35Z"/></clipPath>
+<radialGradient id="irisg"><stop offset="0" stop-color="#e8bf45"/><stop offset="1" stop-color="#7a5200"/></radialGradient>
+</defs>
+<path class="eye-white" d="M4 35C28 6 92 6 116 35C92 64 28 64 4 35Z"/>
+<g clip-path="url(#eyeclip)">
+<g id="iris"><circle cx="60" cy="35" r="21" fill="url(#irisg)"/><ellipse cx="60" cy="35" rx="5" ry="16" fill="#0a0807"/><circle cx="53" cy="28" r="3" fill="#fff" opacity=".75"/></g>
+<rect class="lid t" x="0" y="0" width="120" height="36"/>
+<rect class="lid b" x="0" y="34" width="120" height="36"/>
+</g>
+<path class="eye-line" d="M4 35C28 6 92 6 116 35C92 64 28 64 4 35Z"/>
+</svg>
+</div>
 <header>
 <nav aria-label="Main">
 <a href="#home">Home</a><a href="#map">Archive Map</a><a href="#library">Library</a><a href="#characters">Characters</a><a href="#arena">Battle Arena</a><a href="#riddles">Riddle Vault</a><a href="#debates">Debates</a><a href="#journal">Journal</a><a href="#guestbook">Guestbook</a><a href="#about">About</a>
